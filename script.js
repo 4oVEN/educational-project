@@ -1,9 +1,18 @@
-let number = 5;
-const leftBorder = 1;
+const numberOfFilms = +prompt('Сколько фильмов вы уже посмотрели?', '');
 
-// const answers = [];
-// answers[0] = prompt('Как Ваше имя?', '');
-// answers[1] = prompt('Почему ты нихуя не делаешь?', '');
-// answers[2] = prompt('Скольто ты будешь шланговать?', '');
+const personsalMovieDB = {
+  count: numberOfFilms,
+  movies: {},
+  actors: {},
+  genres: [],
+  privat: false,
+};
 
-// document.write(answers);
+const a = prompt('Один из последних простотренных фильмов?', ''),
+      b = prompt('На сколько оценице его?', ''),
+      c = prompt('Один из последних простотренных фильмов?', ''),
+      d = prompt('На сколько оценице его?', '');
+
+personsalMovieDB.movies[a] = b;
+personsalMovieDB.movies[c] = d;
+console.log(personsalMovieDB);
