@@ -1,18 +1,36 @@
-const numberOfFilms = +prompt('Сколько фильмов вы уже посмотрели?', '');
 
-const personsalMovieDB = {
-  count: numberOfFilms,
-  movies: {},
-  actors: {},
-  genres: [],
-  privat: false,
-};
 
-const a = prompt('Один из последних простотренных фильмов?', ''),
-      b = prompt('На сколько оценице его?', ''),
-      c = prompt('Один из последних простотренных фильмов?', ''),
-      d = prompt('На сколько оценице его?', '');
+if (4 == 9){
+  console.log('Ok');
+} else {
+  console.log('Error');
+}
 
-personsalMovieDB.movies[a] = b;
-personsalMovieDB.movies[c] = d;
-console.log(personsalMovieDB);
+
+
+// if (num < 49) {
+//   console.log('Error');
+// } else if (num > 100){
+//   console.log('Много');
+// } else {
+//   console.log('Ok!');
+// }
+
+// (num === 50) ? console.log('Ok!') : console.log('Много');
+
+const num = '50';
+
+switch (num){
+  case '49':
+    console.log('Неверно');
+    break;
+  case '100':
+    console.log('Многовато');
+    break;
+  case '50':
+    console.log('Ok!');
+    break;
+    default:
+      console.log('Не в этот раз!');
+      break;
+}
