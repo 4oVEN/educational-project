@@ -1,27 +1,53 @@
 'use strict';
 
-const inputRub = document.querySelector('#rub'),
-      inputUsd = document.querySelector('#usd');
-      
-inputRub.addEventListener('input', () => {
-  const request = new XMLHttpRequest();
+// console.log('Запрос данных...');
 
-  request.open('GET', 'js/current.json');
-  request.setRequestHeader('Content-type', 'application/json; charset=utf-8');
-  request.send();
+// const req = new Promise(function(resolve, reject){
+//   setTimeout(() => {
+//     console.log('Подготовка данных...');
 
-  request.addEventListener('load', () => {
-    if (request.status === 200){
-      console.log(request.response);
-      const data  = JSON.parse(request.response);
-      inputUsd.value = (+inputRub.value / data.current.usd).toFixed(2);
-    } else {
-      inputUsd.value = 'Что-то пошло не так';
-    }
+//     const product = {
+//       name: 'TV',
+//       price: 2000
+//     };
+
+//    resolve(product);
+//   }, 2000);
+// });
+
+   
+// req.then((product) => {
+//   return new Promise((resolve, reject) => {
+//     setTimeout(() => {
+//       product.status = 'order';
+//       resolve(product);
+//     }, 2000); 
+//   });  
+// }).then(data => {
+//   data.mogify = true;
+//   return data;   
+// }).then(data => {
+//   console.log(data);
+// }).catch(() => {
+//   console.error('Произошла ошибка!!!');
+// }).finally(() => {
+//   console.log('Finally');
+// });
+
+const test = time => {
+  return new Promise(resolve => {
+    setTimeout(() => resolve(), time);
   });
+};
 
-  // status
-  // statusText
-  // response
-  // readyState
+// test(1000).then(() => {
+//   console.log('1000 ms');
+// });
+// test(2000).then(() => {
+//   console.log('2000 ms');
+// });
+
+Promise.race([test(1000), test(2000)]).then(() => {
+  console.log('All');
 });
+
