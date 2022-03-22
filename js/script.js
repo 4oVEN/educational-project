@@ -1,50 +1,43 @@
 'use strict';
 
-// filter
+// localStorage.setItem('number', 5);
 
-// const names = ['Nikita', 'Olga', 'Kiril', 'Bogdan', 'Platon'];
+// // localStorage.removeItem('number');
+// localStorage.clear();
 
-// const shortNames = names.filter(function(name){
-//   return name.length < 5;
-// });
+// console.log(localStorage.getItem('number'));
 
-// console.log(shortNames);
+const checkbox = document.querySelector('#checkbox'),
+      form = document.querySelector('form'),
+      change = document.querySelector('#color');
 
-// map
+   if (localStorage.getItem('isChecked')){
+     checkbox.checked = true;
+   } 
+   if (localStorage.getItem('bg') === 'changed'){
+    form.style.backgroundColor = 'red';
+  }  
 
-// const answers = ['NIliTa', 'OLga', 'HellO'];
+checkbox.addEventListener('change', () => {
+  localStorage.setItem('isChecked', true);
+});
 
-// const result = answers.map(item => item.toLowerCase());
-// console.log(result);
+change.addEventListener('click', () => {
+  if (localStorage.getItem('bg') === 'changed'){
+    localStorage.removeItem('bg');
+    form.style.backgroundColor = '#fff';
+  }else {
+    localStorage.setItem('bg', 'changed');
+    form.style.backgroundColor = 'red';
+  }
+});
 
-// every/some
-
-// const some = [4, 'wds', 'qwertyuiop'];
-
-// console.log(some.some(item => typeof(item) === 'number'));
-// console.log(some.every(item => typeof(item) === 'number'));
-
-// reduce
-
-// const arr = [4, 5, 1, 3, 2, 6];
-
-// const res = arr.reduce((sum, current) => sum + current, 3);
-// console.log(res);
-
-// const arr = ['apple', 'orange', 'banana', ];
-
-// const res = arr.reduce((sum, current) => `${sum}, ${current}`);
-// console.log(res);
-
-
-const obj = {
-   nikita: 'persone',
-   olga: 'persone',
-   dog: 'animal',
-   cat: 'animal'
+const persone = {
+  name: 'Nikita',
+  age: '33',
 };
 
-const newArr = Object.entries(obj)
-.filter(item => item[1] === 'persone')
-.map(item => item[0]);
-console.log(newArr);
+// const serializedPersone = JSON.stringify(persone);
+localStorage.setItem('nikita', persone);
+
+console.log(localStorage.getItem('nikita'));
