@@ -1,43 +1,31 @@
 'use strict';
 
-// localStorage.setItem('number', 5);
+// new RegExp('pattern', 'flags');
+// /pattern/flags
 
-// // localStorage.removeItem('number');
-// localStorage.clear();
+// const ans = prompt('Введите ваше число');
 
-// console.log(localStorage.getItem('number'));
+// const red = /\d/g;
+// console.log(ans.match(red));
 
-const checkbox = document.querySelector('#checkbox'),
-      form = document.querySelector('form'),
-      change = document.querySelector('#color');
+const str = 'My name is R2D2';
 
-   if (localStorage.getItem('isChecked')){
-     checkbox.checked = true;
-   } 
-   if (localStorage.getItem('bg') === 'changed'){
-    form.style.backgroundColor = 'red';
-  }  
+console.log(str.match(/\D/ig));
 
-checkbox.addEventListener('change', () => {
-  localStorage.setItem('isChecked', true);
-});
+// \d
+// \w
+// \s
 
-change.addEventListener('click', () => {
-  if (localStorage.getItem('bg') === 'changed'){
-    localStorage.removeItem('bg');
-    form.style.backgroundColor = '#fff';
-  }else {
-    localStorage.setItem('bg', 'changed');
-    form.style.backgroundColor = 'red';
-  }
-});
+// i
+// g
+// m
 
-const persone = {
-  name: 'Nikita',
-  age: '33',
-};
+// console.log(ans.search(red));
+// console.log(ans.match(red));
 
-// const serializedPersone = JSON.stringify(persone);
-localStorage.setItem('nikita', persone);
+// const pass = prompt('Password');
 
-console.log(localStorage.getItem('nikita'));
+// console.log(pass.replace(/\./g, '*'));
+
+console.log('12-34-56'.replace(/-/g, ':'));
+
