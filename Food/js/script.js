@@ -385,11 +385,15 @@ setClock('.timer', deadline);
     dots.push(dot);
   }
 
+  function deleteNotDigits(str){
+    return +str.replace(/\D/g, '');
+  }
+
   next.addEventListener('click', () => {
-    if (offset == +width.slice(0, width.length - 2) * (slider.length - 1)){
+    if (offset == deleteNotDigits(width) * (slider.length - 1)){
       offset = 0;
     } else {
-      offset += +width.slice(0, width.length - 2);
+      offset += deleteNotDigits(width);
     }
     slidesField.style.transform = `translateX(-${offset}px)`;
 
@@ -410,9 +414,9 @@ setClock('.timer', deadline);
 
   prev.addEventListener('click', () => {
     if (offset == 0){
-        offset = +width.slice(0, width.length - 2) * (slider.length - 1);
+        offset = deleteNotDigits(width) * (slider.length - 1);
     } else {
-      offset -= +width.slice(0, width.length - 2);
+      offset -= deleteNotDigits(width);
     }
     slidesField.style.transform = `translateX(-${offset}px)`;
 
@@ -436,7 +440,7 @@ setClock('.timer', deadline);
       const slideTo = e.target.getAttribute('data-slide-to');
 
       slideIndex = slideTo;
-      offset = +width.slice(0, width.length - 2) * (slideTo - 1);
+      offset = deleteNotDigits(width) * (slideTo - 1);
       
       slidesField.style.transform = `translateX(-${offset}px)`;
 
