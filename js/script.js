@@ -1,34 +1,35 @@
 'use strict';
 
-class User{
-  constructor(name, age){
-    this.name = name;
-      this._age = age;
-  }
-  
-  #surname = 'Demidov';
+// function* generator(){
+//   yield 'S';
+//   yield 'c';
+//   yield 'r';
+//   yield 'i';
+//   yield 'p';
+//   yield 't';
+// }
 
-  say = () => {
-    console.log(`Имя пользователя: ${this.name}${this.#surname}, возвраст ${this._age}`);
-  }
+// const str = generator();
 
-  get age (){
-    return this._age;
-  }
+// console.log(str.next());
+// console.log(str.next());
+// console.log(str.next());
+// console.log(str.next());
+// console.log(str.next());
+// console.log(str.next());
+// console.log(str.next());
 
-  set age (age){
-    if (typeof  age === 'number' && age > 0 && age < 110){
-      this._age = age;
-    } else {
-      console.log('Недопустимые значения');
-    }
+function* count (n){
+  for (let i = 0; i < n; i++){
+    yield i;
   }
 }
 
-const nikita = new User('nikita', 33);
-console.log(nikita._age);
-nikita._age = 99;
-console.log(nikita._age);
-console.log(nikita.surname);
+for (let k of count(7)){
+  console.log(k);
+}
 
-nikita.say();
+// const counter = count(7);
+// console.log(counter.next().value);
+// console.log(counter.next().value);
+// console.log(counter.next().value);
